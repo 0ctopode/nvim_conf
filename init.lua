@@ -2,6 +2,7 @@ vim.g.mapleader = ' ';
 vim.opt.number = true
 vim.opt.hlsearch = true  -- Highlight search results
 vim.opt.mouse = "a"  -- Mouse scrolling
+vim.opt.termguicolors = true
 
 -- Tabs
 vim.opt.autoindent = true
@@ -33,15 +34,16 @@ vim.call('plug#begin')
 
 Plug('navarasu/onedark.nvim');
 Plug('neoclide/coc.nvim', { ['branch'] = 'release' });
--- Plug('preservim/nerdtree');
-Plug('Xuyuanp/nerdtree-git-plugin')
+Plug('preservim/nerdtree');
+Plug('Xuyuanp/nerdtree-git-plugin');
 Plug('nvim-lua/plenary.nvim');  -- Dependency for telescope
 Plug('nvim-telescope/telescope.nvim')
-Plug('nvim-treesitter/nvim-treesitter', { ['do'] = 'TSUpdate'})
+Plug('nvim-treesitter/nvim-treesitter', { ['do'] = 'TSUpdate'});
 Plug('NeogitOrg/neogit');
 Plug('sindrets/diffview.nvim');  -- Used by neogit
 Plug('airblade/vim-gitgutter');
-Plug('nvim-tree/nvim-web-devicons')
+Plug('nvim-tree/nvim-web-devicons');
+Plug('nvim-lualine/lualine.nvim');
 
 vim.call('plug#end')
 
@@ -50,6 +52,10 @@ require('onedark').load();
 
 local neogit = require('neogit');
 neogit.setup {}
+
+-- ====== Status Bar
+-- require('statusbar_config');
+require('lualine').setup()
 
 -- ====== Telescope
 local builtin = require('telescope.builtin');
@@ -63,11 +69,10 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 -- ====== COC
 require('coc_cfg')
 
-
--- ====== treesitter
+-- ====== Treesitter
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "python", "sql", "javascript", "typescript", "css" },
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "python", "sql", "javascript", "typescript", "css", "html" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
