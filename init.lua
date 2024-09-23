@@ -45,7 +45,7 @@ Plug('sindrets/diffview.nvim');  -- Used by neogit
 Plug('airblade/vim-gitgutter');
 Plug('nvim-tree/nvim-web-devicons');
 Plug('nvim-lualine/lualine.nvim');
-Plug('ThePrimeagen/harpoon');
+Plug('ThePrimeagen/harpoon', { ['branch'] = 'harpoon2'});
 Plug('akinsho/bufferline.nvim');
 
 vim.call('plug#end')
@@ -61,11 +61,11 @@ local neogit = require('neogit');
 neogit.setup {}
 
 -- ====== Harpoon
-require("harpoon").setup()
-vim.keymap.set('n', '<C-e>', function()
-	require('harpoon.ui').toggle_quick_menu()
-end, {});
-vim.keymap.set('n', '<C-w>', require("harpoon.mark").add_file, {});
+local harpoon = require("harpoon")
+harpoon:setup()
+
+vim.keymap.set('n', '<C-w>', function() harpoon:list():add() end)
+vim.keymap.set('n', '<C-e>', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
 -- ====== Status Bar
 -- require('statusbar_config');
