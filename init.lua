@@ -45,13 +45,18 @@ Plug('sindrets/diffview.nvim');  -- Used by neogit
 Plug('airblade/vim-gitgutter');
 Plug('nvim-tree/nvim-web-devicons');
 Plug('nvim-lualine/lualine.nvim');
-Plug('ThePrimeagen/harpoon')
+Plug('ThePrimeagen/harpoon');
+Plug('akinsho/bufferline.nvim');
 
 vim.call('plug#end')
 
 -- ====== Theme
 require('onedark').load();
 
+-- ====== bufferline
+require("bufferline").setup{}
+
+-- ====== Neogit
 local neogit = require('neogit');
 neogit.setup {}
 
