@@ -3,6 +3,7 @@ vim.opt.number = true
 vim.opt.hlsearch = true  -- Highlight search results
 vim.opt.mouse = "a"  -- Mouse scrolling
 vim.opt.termguicolors = true
+vim.opt.relativenumber = true  -- Can't figure out if this is a good idea or not
 
 -- Tabs
 vim.opt.autoindent = true
@@ -59,7 +60,7 @@ require("harpoon").setup()
 vim.keymap.set('n', '<C-e>', function()
 	require('harpoon.ui').toggle_quick_menu()
 end, {});
-vim.keymap.set('n', '<leader>a', require("harpoon.mark").add_file, {});
+vim.keymap.set('n', '<C-w>', require("harpoon.mark").add_file, {});
 
 -- ====== Status Bar
 -- require('statusbar_config');
@@ -84,7 +85,7 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_b = {'branch', 'diff'},
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
