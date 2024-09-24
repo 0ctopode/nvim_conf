@@ -3,7 +3,7 @@ vim.opt.number = true
 vim.opt.hlsearch = true  -- Highlight search results
 vim.opt.mouse = "a"  -- Mouse scrolling
 vim.opt.termguicolors = true
-vim.opt.relativenumber = true  -- Can't figure out if this is a good idea or not
+-- vim.opt.relativenumber = true  -- Can't figure out if this is a good idea or not
 
 -- Tabs
 vim.opt.autoindent = true
@@ -54,7 +54,12 @@ vim.call('plug#end')
 require('onedark').load();
 
 -- ====== bufferline
-require("bufferline").setup{}
+local bufferline = require('bufferline')
+require("bufferline").setup{
+	options = {
+		mode = "tabs",
+	}
+}
 
 -- ====== Neogit
 local neogit = require('neogit');
