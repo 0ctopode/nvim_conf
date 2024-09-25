@@ -4,6 +4,7 @@ vim.opt.hlsearch = true  -- Highlight search results
 vim.opt.mouse = "a"  -- Mouse scrolling
 vim.opt.termguicolors = true
 -- vim.opt.relativenumber = true  -- Can't figure out if this is a good idea or not
+vim.g.editorconfig = false  -- wow this was annoying in a git repo
 
 -- Tabs
 vim.opt.autoindent = true
@@ -14,6 +15,9 @@ vim.opt.copyindent = true
 vim.opt.preserveindent = true;
 vim.opt.softtabstop = 0;
 vim.opt.smarttab = true;
+
+-- Set indentation *after* ftplugins
+vim.api.nvim_command([[au FileType * setl expandtab< shiftwidth< softtabstop< tabstop<]])  -- This is so cooked
 
 -- Whitespace
 vim.opt.list = true;
@@ -69,7 +73,7 @@ neogit.setup {}
 local harpoon = require("harpoon")
 harpoon:setup()
 
-vim.keymap.set('n', '<C-w>', function() harpoon:list():add() end)
+vim.keymap.set('n', '<leader>w', function() harpoon:list():add() end)
 vim.keymap.set('n', '<C-e>', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
 -- ====== Status Bar
