@@ -46,7 +46,7 @@ Plug('nvim-telescope/telescope.nvim')
 Plug('nvim-treesitter/nvim-treesitter', { ['do'] = 'TSUpdate'});
 Plug('NeogitOrg/neogit');
 Plug('sindrets/diffview.nvim');  -- Used by neogit
-Plug('airblade/vim-gitgutter');
+Plug('lewis6991/gitsigns.nvim');
 Plug('nvim-tree/nvim-web-devicons');
 Plug('nvim-lualine/lualine.nvim');
 Plug('ThePrimeagen/harpoon', { ['branch'] = 'harpoon2'});
@@ -77,8 +77,71 @@ harpoon:setup()
 vim.keymap.set('n', '<leader>w', function() harpoon:list():add() end)
 vim.keymap.set('n', '<C-e>', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
+-- ====== GitSigns
+require('gitsigns').setup {
+  signs = {
+    add          = { text = '┃' },
+    change       = { text = '┃' },
+    delete       = { text = '_' },
+    topdelete    = { text = '‾' },
+    changedelete = { text = '~' },
+    untracked    = { text = '┆' },
+  },
+  signs_staged = {
+    add          = { text = '┃' },
+    change       = { text = '┃' },
+    delete       = { text = '_' },
+    topdelete    = { text = '‾' },
+    changedelete = { text = '~' },
+    untracked    = { text = '┆' },
+  },
+  signs_staged_enable = true,
+  signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
+  numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
+  linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
+  word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
+  watch_gitdir = {
+    follow_files = true
+  },
+  auto_attach = true,
+  attach_to_untracked = false,
+  current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+  current_line_blame_opts = {
+    virt_text = true,
+    virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+    delay = 1000,
+    ignore_whitespace = false,
+    virt_text_priority = 100,
+    use_focus = true,
+  },
+  current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
+  sign_priority = 6,
+  update_debounce = 100,
+  status_formatter = nil, -- Use default
+  max_file_length = 40000, -- Disable if file is longer than this (in lines)
+  preview_config = {
+    -- Options passed to nvim_open_win
+    border = 'single',
+    style = 'minimal',
+    relative = 'cursor',
+    row = 0,
+    col = 1
+  },
+}
+
+
 -- ====== Status Bar
--- require('statusbar_config');
+local function diff_source()
+  if vim.fn.exists('*sy#repo#get_stats') == 1 then
+    local stats = vim.fn['sy#repo#get_stats']()
+    return {
+      added = stats[1],
+      modified = stats[2],
+      removed = stats[3],
+    }
+  end
+end
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -100,7 +163,7 @@ require('lualine').setup {
   },
   sections = {
     lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff'},
+    lualine_b = { {'diff', source = diff_source}, },
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
