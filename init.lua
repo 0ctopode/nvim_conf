@@ -127,8 +127,38 @@ require('gitsigns').setup {
     row = 0,
     col = 1
   },
-}
+    on_attach = function(bufnr)
+    local gitsigns = require('gitsigns')
 
+	local function map(mode, l, r, opts)
+      opts = opts or {}
+      opts.buffer = bufnr
+      vim.keymap.set(mode, l, r, opts)
+    end
+
+    -- Navigation
+    map('n', ']c', function()
+      if vim.wo.diff then
+        vim.cmd.normal({']c', bang = true})
+      else
+        gitsigns.nav_hunk('next')
+      end
+    end)
+
+    map('n', '[c', function()
+      if vim.wo.diff then
+        vim.cmd.normal({'[c', bang = true})
+      else
+        gitsigns.nav_hunk('prev')
+      end
+    end)
+
+    -- Actions
+	map('n', '<leader>gb', gitsigns.blame_line)
+	map('n', '<leader>gv', gitsigns.blame)
+
+  end
+}
 
 -- ====== Status Bar
 local function diff_source()
@@ -164,7 +194,13 @@ require('lualine').setup {
   sections = {
     lualine_a = {'mode'},
     lualine_b = { {'diff', source = diff_source}, },
-    lualine_c = {'filename'},
+    lualine_c = {
+    	{
+    		'filename',
+    		file_status = true,
+    		path = 1,
+    	}
+    },
     lualine_x = {'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress'},
     lualine_z = {'selectioncount', 'location'}
