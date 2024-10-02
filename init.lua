@@ -30,6 +30,9 @@ vim.opt.encoding = "utf-8";
 vim.opt.compatible = false  -- Prevents vim tryna be backwards compatible with vi or something
 vim.opt.backspace = {'indent', 'eol', 'start'}  -- Allow backspacing over everything in insert mode
 
+-- ====== General remaps
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+
 -- ====== Vim Plug
 local vim = vim
 local Plug = vim.fn['plug#']
