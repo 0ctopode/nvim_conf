@@ -1,3 +1,6 @@
 {
-	"inlayHint.enable": false
+	"inlayHint.enable": false,
+
+	"pyright.disableDiagnostics": true,
+	"python.linting.ruffEnabled": true,
 }
