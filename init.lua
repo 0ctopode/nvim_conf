@@ -158,6 +158,8 @@ require('gitsigns').setup {
     -- Actions
 	map('n', '<leader>gb', gitsigns.blame_line)
 	map('n', '<leader>gv', gitsigns.blame)
+	map('n', '<leader>gp', gitsigns.preview_hunk)
+	map('n', '<leader>gr', gitsigns.reset_hunk)
 
   end
 }
