@@ -3,4 +3,7 @@
 
 	"pyright.disableDiagnostics": true,
 	"python.linting.ruffEnabled": true,
+
+	"suggest.noselect": true,
+	"suggest.maxCompleteItemCount": 20,
 }
