@@ -44,10 +44,12 @@ local Plug = vim.fn['plug#']
 
 vim.call('plug#begin')
 
+Plug 'MunifTanjim/nui.nvim';  -- Dependency for neotree
 Plug('navarasu/onedark.nvim');
 Plug('neoclide/coc.nvim', { ['branch'] = 'release' });
-Plug('preservim/nerdtree');
-Plug('Xuyuanp/nerdtree-git-plugin');
+-- Plug('preservim/nerdtree');
+-- Plug('Xuyuanp/nerdtree-git-plugin');
+Plug('nvim-neo-tree/neo-tree.nvim');
 Plug('nvim-lua/plenary.nvim');  -- Dependency for telescope
 Plug('nvim-telescope/telescope.nvim')
 Plug('nvim-treesitter/nvim-treesitter', { ['do'] = 'TSUpdate'});
@@ -69,6 +71,13 @@ require('plugins.telescope')
 require('plugins.coc')
 require('plugins.devicons')
 require('plugins.treesitter')
+require('plugins.neotree')
+
+-- General Plugin keybinds
+vim.keymap.set('n', '<leader>gg', '<Cmd>Neogit<CR>')
+
+vim.keymap.set('n', '<leader>tt', '<Cmd>Neotree position=float<CR>')
+vim.keymap.set('n', '<leader>tr', '<Cmd>Neotree position=right<CR>')
 
 
 -- Theme
