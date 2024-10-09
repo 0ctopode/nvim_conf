@@ -6,7 +6,7 @@ vim.opt.number = true
 vim.opt.hlsearch = true  -- Highlight search results
 vim.opt.mouse = "a"  -- Mouse scrolling
 vim.opt.termguicolors = true
--- vim.opt.relativenumber = true  -- Can't figure out if this is a good idea or not
+vim.opt.relativenumber = true  -- Can't figure out if this is a good idea or not
 vim.g.editorconfig = false  -- wow this was annoying in a git repo
 
 -- Tabs
@@ -60,6 +60,7 @@ Plug('nvim-tree/nvim-web-devicons');
 Plug('nvim-lualine/lualine.nvim');
 Plug('ThePrimeagen/harpoon', { ['branch'] = 'harpoon2'});
 Plug('akinsho/bufferline.nvim');
+Plug('goolord/alpha-nvim');
 
 vim.call('plug#end')
 
@@ -83,6 +84,8 @@ vim.keymap.set('n', '<leader>tr', '<Cmd>Neotree position=right<CR>')
 -- Theme
 require('onedark').load();
 
+-- α Alpha Startup
+require'alpha'.setup(require'alpha.themes.theta'.config)
 
 -- Bufferline
 local bufferline = require('bufferline')
