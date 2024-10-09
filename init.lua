@@ -47,8 +47,6 @@ vim.call('plug#begin')
 Plug 'MunifTanjim/nui.nvim';  -- Dependency for neotree
 Plug('navarasu/onedark.nvim');
 Plug('neoclide/coc.nvim', { ['branch'] = 'release' });
--- Plug('preservim/nerdtree');
--- Plug('Xuyuanp/nerdtree-git-plugin');
 Plug('nvim-neo-tree/neo-tree.nvim');
 Plug('nvim-lua/plenary.nvim');  -- Dependency for telescope
 Plug('nvim-telescope/telescope.nvim')
@@ -59,8 +57,11 @@ Plug('lewis6991/gitsigns.nvim');
 Plug('nvim-tree/nvim-web-devicons');
 Plug('nvim-lualine/lualine.nvim');
 Plug('ThePrimeagen/harpoon', { ['branch'] = 'harpoon2'});
-Plug('akinsho/bufferline.nvim');
 Plug('goolord/alpha-nvim');
+
+-- Plug('akinsho/bufferline.nvim');
+-- Plug('preservim/nerdtree');
+-- Plug('Xuyuanp/nerdtree-git-plugin');
 
 vim.call('plug#end')
 
@@ -73,6 +74,7 @@ require('plugins.coc')
 require('plugins.devicons')
 require('plugins.treesitter')
 require('plugins.neotree')
+require('plugins.harpoon')
 
 -- General Plugin keybinds
 vim.keymap.set('n', '<leader>gg', '<Cmd>Neogit<CR>')
@@ -84,28 +86,21 @@ vim.keymap.set('n', '<leader>tr', '<Cmd>Neotree position=right<CR>')
 -- Theme
 require('onedark').load();
 
+
+-- Simple Configs
+
 -- α Alpha Startup
 require'alpha'.setup(require'alpha.themes.theta'.config)
 
+-- Neogit
+require('neogit').setup{}
+
 -- Bufferline
-local bufferline = require('bufferline')
-require("bufferline").setup{
-	options = {
-		mode = "tabs",
-		separator_style = "slope",
-	}
-}
-
-
--- ====== Neogit
-local neogit = require('neogit');
-neogit.setup {}
-
-
--- ====== Harpoon
-local harpoon = require("harpoon")
-harpoon:setup()
-
-vim.keymap.set('n', '<leader>w', function() harpoon:list():add() end)
-vim.keymap.set('n', '<C-e>', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+--local bufferline = require('bufferline')
+--require("bufferline").setup{
+--	options = {
+--		mode = "tabs",
+--		separator_style = "slope",
+--	}
+--}
 
