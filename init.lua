@@ -12,8 +12,8 @@ vim.g.editorconfig = false  -- wow this was annoying in a git repo
 -- Tabs
 vim.opt.autoindent = true
 vim.opt.expandtab = false
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 6
+vim.opt.shiftwidth = 6
 vim.opt.copyindent = true
 vim.opt.preserveindent = true;
 vim.opt.softtabstop = 0;
