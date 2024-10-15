@@ -58,6 +58,7 @@ Plug('nvim-tree/nvim-web-devicons');
 Plug('nvim-lualine/lualine.nvim');
 Plug('ThePrimeagen/harpoon', { ['branch'] = 'harpoon2'});
 Plug('goolord/alpha-nvim');
+Plug('fdschmidt93/telescope-egrepify.nvim')
 
 -- Plug('akinsho/bufferline.nvim');
 -- Plug('preservim/nerdtree');
