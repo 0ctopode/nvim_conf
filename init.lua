@@ -59,7 +59,7 @@ Plug('nvim-lualine/lualine.nvim');
 Plug('ThePrimeagen/harpoon', { ['branch'] = 'harpoon2'});
 Plug('goolord/alpha-nvim');
 Plug('fdschmidt93/telescope-egrepify.nvim')
-
+Plug('stevearc/oil.nvim')
 
 vim.call('plug#end')
 
@@ -92,4 +92,7 @@ require'alpha'.setup(require'alpha.themes.theta'.config)
 
 -- Neogit
 require('neogit').setup{}
+
+-- Oil
+require("oil").setup();
 
