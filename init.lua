@@ -60,9 +60,6 @@ Plug('ThePrimeagen/harpoon', { ['branch'] = 'harpoon2'});
 Plug('goolord/alpha-nvim');
 Plug('fdschmidt93/telescope-egrepify.nvim')
 
--- Plug('akinsho/bufferline.nvim');
--- Plug('preservim/nerdtree');
--- Plug('Xuyuanp/nerdtree-git-plugin');
 
 vim.call('plug#end')
 
@@ -95,13 +92,4 @@ require'alpha'.setup(require'alpha.themes.theta'.config)
 
 -- Neogit
 require('neogit').setup{}
-
--- Bufferline
---local bufferline = require('bufferline')
---require("bufferline").setup{
---	options = {
---		mode = "tabs",
---		separator_style = "slope",
---	}
---}
 
