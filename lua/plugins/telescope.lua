@@ -21,8 +21,14 @@ require("telescope").setup {
         -- example prompt: ! sorter
         -- matches all lines that do not comprise sorter
         -- rg --invert-match -- sorter
+        --["!"] = {
+        --  flag = "invert-match",
+        --},
         ["!"] = {
-          flag = "invert-match",
+        	  flag = "g",
+        	  cb = function(input)
+        	  	  return string.format([[!{%s}/]], input)
+        	  end,
         },
         -- HOW TO OPT OUT OF PREFIX
         -- ^ is not a default prefix and safe example
