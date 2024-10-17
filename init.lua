@@ -73,12 +73,14 @@ require('plugins.devicons')
 require('plugins.treesitter')
 require('plugins.neotree')
 require('plugins.harpoon')
+require('plugins.oil')
 
 -- General Plugin keybinds
 vim.keymap.set('n', '<leader>gg', '<Cmd>Neogit<CR>')
 
 vim.keymap.set('n', '<leader>tt', '<Cmd>Neotree position=float<CR>')
 vim.keymap.set('n', '<leader>tr', '<Cmd>Neotree position=right<CR>')
+vim.keymap.set('n', '<leader>to', '<Cmd>Oil --float<CR>')
 
 
 -- Theme
@@ -92,7 +94,4 @@ require'alpha'.setup(require'alpha.themes.theta'.config)
 
 -- Neogit
 require('neogit').setup{}
-
--- Oil
-require("oil").setup();
 
