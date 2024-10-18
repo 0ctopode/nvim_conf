@@ -24,10 +24,45 @@ require("telescope").setup {
         --["!"] = {
         --  flag = "invert-match",
         --},
+        --
+        -- DEFAULT PREFIXES
+        -- just for visibility
+        ["#"] = {
+        	  -- #$REMAINDER
+        	  -- # is caught prefix
+        	  -- `input` becomes $REMAINDER
+        	  -- in the above example #lua,md -> input: lua,md
+        	  flag = "glob",
+        	  cb = function(input)
+            	return string.format([[*.{%s}]], input)
+        	  end,
+    	    },
+    	    -- filter for (partial) folder names
+    	    -- example prompt: >conf $MY_PROMPT
+    	    -- searches with ripgrep prompt $MY_PROMPT in paths that have "conf" in folder
+    	    -- i.e. rg --glob="**/conf*/**" -- $MY_PROMPT
+    	    [">"] = {
+        	  flag = "glob",
+        	  cb = function(input)
+            	return string.format([[**/{%s}*/**]], input)
+        	  end,
+    	    },
+    	    -- filter for (partial) folder names
+    	    -- example prompt: &egrep $MY_PROMPT
+    	    -- searches with ripgrep prompt $MY_PROMPT in paths that have "egrep" in file name
+    	    -- i.e. rg --glob="*egrep*" -- $MY_PROMPT
+    	    ["&"] = {
+        	  flag = "glob",
+        	  cb = function(input)
+            	return string.format([[*{%s}*]], input)
+        	  end,
+    	    },
+
+	  -- PREFIXES I"VE ADDED
         ["!"] = {
         	  flag = "g",
         	  cb = function(input)
-        	  	  return string.format([[!{%s}/]], input)
+        	  	  return string.format([[!{%s}]], input)
         	  end,
         },
         -- HOW TO OPT OUT OF PREFIX

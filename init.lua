@@ -24,9 +24,9 @@ vim.api.nvim_command([[au FileType * setl expandtab< shiftwidth< softtabstop< ta
 -- Whitespace
 vim.opt.list = true;
 vim.opt.listchars = {
---		eol = '↵',
-		tab = '⇥ ',
-		space = '◦'
+--	eol = '↵',
+	tab = '⇥ ',
+	space = '◦'
 };
 
 vim.opt.encoding = "utf-8";
@@ -44,22 +44,23 @@ local Plug = vim.fn['plug#']
 
 vim.call('plug#begin')
 
-Plug 'MunifTanjim/nui.nvim';  -- Dependency for neotree
-Plug('navarasu/onedark.nvim');
-Plug('neoclide/coc.nvim', { ['branch'] = 'release' });
-Plug('nvim-neo-tree/neo-tree.nvim');
-Plug('nvim-lua/plenary.nvim');  -- Dependency for telescope
+Plug 'MunifTanjim/nui.nvim'  -- Dependency for neotree
+Plug('navarasu/onedark.nvim')
+Plug('neoclide/coc.nvim', { ['branch'] = 'release' })
+Plug('nvim-neo-tree/neo-tree.nvim')
+Plug('nvim-lua/plenary.nvim')  -- Dependency for telescope
 Plug('nvim-telescope/telescope.nvim')
-Plug('nvim-treesitter/nvim-treesitter', { ['do'] = 'TSUpdate'});
-Plug('NeogitOrg/neogit');
-Plug('sindrets/diffview.nvim');  -- Used by neogit
-Plug('lewis6991/gitsigns.nvim');
-Plug('nvim-tree/nvim-web-devicons');
-Plug('nvim-lualine/lualine.nvim');
-Plug('ThePrimeagen/harpoon', { ['branch'] = 'harpoon2'});
-Plug('goolord/alpha-nvim');
+Plug('nvim-treesitter/nvim-treesitter', { ['do'] = 'TSUpdate'})
+Plug('NeogitOrg/neogit')
+Plug('sindrets/diffview.nvim')  -- Used by neogit
+Plug('lewis6991/gitsigns.nvim')
+Plug('nvim-tree/nvim-web-devicons')
+Plug('nvim-lualine/lualine.nvim')
+Plug('ThePrimeagen/harpoon', { ['branch'] = 'harpoon2'})
+Plug('goolord/alpha-nvim')
 Plug('fdschmidt93/telescope-egrepify.nvim')
 Plug('stevearc/oil.nvim')
+-- Plug('OXY2DEV/markview.nvim')
 
 vim.call('plug#end')
 
