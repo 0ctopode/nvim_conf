@@ -1,7 +1,7 @@
 
 -- INIT.LUA
 
-vim.g.mapleader = ' ';
+vim.g.mapleader = ' '
 vim.opt.number = true
 vim.opt.hlsearch = true  -- Highlight search results
 vim.opt.mouse = "a"  -- Mouse scrolling
@@ -15,9 +15,9 @@ vim.opt.expandtab = false
 vim.opt.tabstop = 6
 vim.opt.shiftwidth = 6
 vim.opt.copyindent = true
-vim.opt.preserveindent = true;
-vim.opt.softtabstop = 0;
-vim.opt.smarttab = true;
+vim.opt.preserveindent = true
+vim.opt.softtabstop = 0
+vim.opt.smarttab = true
 -- Set indentation *after* ftplugins
 vim.api.nvim_command([[au FileType * setl expandtab< shiftwidth< softtabstop< tabstop<]])  -- This is so cooked
 
@@ -60,7 +60,6 @@ Plug('ThePrimeagen/harpoon', { ['branch'] = 'harpoon2'})
 Plug('goolord/alpha-nvim')
 Plug('fdschmidt93/telescope-egrepify.nvim')
 Plug('stevearc/oil.nvim')
--- Plug('OXY2DEV/markview.nvim')
 
 vim.call('plug#end')
 
