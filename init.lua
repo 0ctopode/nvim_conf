@@ -60,6 +60,7 @@ Plug('ThePrimeagen/harpoon', { ['branch'] = 'harpoon2'})
 Plug('goolord/alpha-nvim')
 Plug('fdschmidt93/telescope-egrepify.nvim')
 Plug('stevearc/oil.nvim')
+Plug('tpope/vim-fugitive')
 
 vim.call('plug#end')
 
