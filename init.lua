@@ -42,43 +42,51 @@ vim.opt.backspace = {'indent', 'eol', 'start'}  -- Allow backspacing over everyt
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 
 
+
+-- Setting up Lazy
+
+require("config.lazy")
+
+
+
+
 -- Vim Plug
-local vim = vim
-local Plug = vim.fn['plug#']
+-- local vim = vim
+-- local Plug = vim.fn['plug#']
 
-vim.call('plug#begin')
+-- vim.call('plug#begin')
 
-Plug 'MunifTanjim/nui.nvim'  -- Dependency for neotree
-Plug('navarasu/onedark.nvim')
-Plug('neoclide/coc.nvim', { ['branch'] = 'release' })
-Plug('nvim-neo-tree/neo-tree.nvim')
-Plug('nvim-lua/plenary.nvim')  -- Dependency for telescope
-Plug('nvim-telescope/telescope.nvim')
-Plug('nvim-treesitter/nvim-treesitter', { ['do'] = 'TSUpdate'})
-Plug('NeogitOrg/neogit')
-Plug('sindrets/diffview.nvim')  -- Used by neogit
-Plug('lewis6991/gitsigns.nvim')
-Plug('nvim-tree/nvim-web-devicons')
-Plug('nvim-lualine/lualine.nvim')
-Plug('ThePrimeagen/harpoon', { ['branch'] = 'harpoon2'})
-Plug('goolord/alpha-nvim')
-Plug('fdschmidt93/telescope-egrepify.nvim')
-Plug('stevearc/oil.nvim')
-Plug('tpope/vim-fugitive')
-
-vim.call('plug#end')
+-- Plug 'MunifTanjim/nui.nvim'  -- Dependency for neotree
+-- Plug('navarasu/onedark.nvim')
+-- Plug('neoclide/coc.nvim', { ['branch'] = 'release' })
+-- Plug('nvim-neo-tree/neo-tree.nvim')
+-- Plug('nvim-lua/plenary.nvim')  -- Dependency for telescope
+-- Plug('nvim-telescope/telescope.nvim')
+-- Plug('nvim-treesitter/nvim-treesitter', { ['do'] = 'TSUpdate'})
+-- Plug('NeogitOrg/neogit')
+-- Plug('sindrets/diffview.nvim')  -- Used by neogit
+-- Plug('lewis6991/gitsigns.nvim')
+-- Plug('nvim-tree/nvim-web-devicons')
+-- Plug('nvim-lualine/lualine.nvim')
+-- Plug('ThePrimeagen/harpoon', { ['branch'] = 'harpoon2'})
+-- Plug('goolord/alpha-nvim')
+-- Plug('fdschmidt93/telescope-egrepify.nvim')
+-- Plug('stevearc/oil.nvim')
+-- Plug('tpope/vim-fugitive')
+-- 
+-- vim.call('plug#end')
 
 
 -- Plugin Config
-require('plugins.gitsigns')
-require('plugins.lualine')
-require('plugins.telescope')
-require('plugins.coc')
-require('plugins.devicons')
-require('plugins.treesitter')
-require('plugins.neotree')
-require('plugins.harpoon')
-require('plugins.oil')
+-- require('plugins.gitsigns')
+-- require('plugins.lualine')
+-- require('plugins.telescope')
+-- require('plugins.coc')
+-- require('plugins.devicons')
+-- require('plugins.treesitter')
+-- require('plugins.neotree')
+-- require('plugins.harpoon')
+-- require('plugins.oil')
 
 -- General Plugin keybinds
 vim.keymap.set('n', '<leader>gg', '<Cmd>Neogit<CR>')
@@ -95,8 +103,8 @@ require('onedark').load();
 -- Simple Configs
 
 -- α Alpha Startup
-require'alpha'.setup(require'alpha.themes.theta'.config)
+-- require'alpha'.setup(require'alpha.themes.theta'.config)
 
 -- Neogit
-require('neogit').setup{}
+-- require('neogit').setup{}
 
