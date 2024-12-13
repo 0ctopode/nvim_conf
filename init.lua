@@ -9,6 +9,10 @@ vim.opt.termguicolors = true
 vim.opt.relativenumber = true  -- Can't figure out if this is a good idea or not
 vim.g.editorconfig = false  -- wow this was annoying in a git repo
 
+-- Case insensitive when searching all lowercase but case sensitive if any uppercase
+vim.opt.ignorecase = true
+vim.opt.smartcase = true  -- overrides ignorecase if capitals present
+
 -- Tabs
 vim.opt.autoindent = true
 vim.opt.expandtab = false
