@@ -26,8 +26,12 @@ require("lazy").setup({
   spec = {
 	{'navarasu/onedark.nvim'},
 	{'nvim-lua/plenary.nvim'},
+	{
+    	    "fdschmidt93/telescope-egrepify.nvim",
+    	    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+	},
     -- import your plugins
-    -- { import = "plugins" },
+	{ import = "plugins" },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
