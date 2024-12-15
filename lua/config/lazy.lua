@@ -25,6 +25,7 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
   spec = {
 	{'navarasu/onedark.nvim'},
+	{'tpope/vim-fugitive'},
 	{'nvim-lua/plenary.nvim'},
 	{
     	    "fdschmidt93/telescope-egrepify.nvim",
