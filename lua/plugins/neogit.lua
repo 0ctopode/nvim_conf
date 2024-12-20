@@ -6,6 +6,9 @@ return {
 
 		"nvim-telescope/telescope.nvim", -- optional
 	},
+	keys = {
+		{ "<leader>gg", '<Cmd>Neogit<CR>', desc = "Neogit"}
+	},
 	config = function()
 		local neogit = require("neogit")
 

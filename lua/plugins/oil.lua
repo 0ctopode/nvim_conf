@@ -5,6 +5,9 @@ return {
 	opts = {},
 	-- Optional dependencies
 	dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+	keys = {
+		{'<leader>to', '<Cmd>Oil --float<CR>', desc = 'Oil'},
+	},
 
 	config = function()
 		require("oil").setup({

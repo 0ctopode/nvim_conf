@@ -45,14 +45,6 @@ vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 -- Setting up Lazy
 require("config.lazy")
 
--- General Plugin keybinds
-vim.keymap.set('n', '<leader>gg', '<Cmd>Neogit<CR>')
-
-vim.keymap.set('n', '<leader>tt', '<Cmd>Neotree position=float<CR>')
-vim.keymap.set('n', '<leader>tr', '<Cmd>Neotree position=right<CR>')
-vim.keymap.set('n', '<leader>to', '<Cmd>Oil --float<CR>')
-
-
 -- Theme
 require('onedark').load();
 
