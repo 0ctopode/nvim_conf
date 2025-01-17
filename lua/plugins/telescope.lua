@@ -4,6 +4,9 @@ return {
       dependencies = { 'nvim-lua/plenary.nvim' },
       
       config = function()
+		require('telescope').load_extension("egrepify")
+		require("telescope").load_extension("advanced_git_search")
+
 		local builtin = require('telescope.builtin');
 		local egrep_actions = require "telescope._extensions.egrepify.actions"
 		require("telescope").setup {
@@ -89,7 +92,7 @@ return {
     	    	    },
   	  	  },
 		}
-		require('telescope').load_extension "egrepify"
+
 		vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 		-- vim.keymap.set('n', '<leader>fp', builtin.git_files, {})  -- doesn't seem to work as expected in mrimpossible
 		vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
