@@ -8,6 +8,7 @@ vim.opt.mouse = "a"  -- Mouse scrolling
 vim.opt.termguicolors = true
 vim.opt.relativenumber = true  -- Can't figure out if this is a good idea or not
 vim.g.editorconfig = false  -- wow this was annoying in a git repo
+vim.opt.linebreak = true
 
 -- Case insensitive when searching all lowercase but case sensitive if any uppercase
 vim.opt.ignorecase = true
@@ -46,5 +47,5 @@ vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 require("config.lazy")
 
 -- Theme
-require('onedark').load();
+-- require('onedark').load();
 
