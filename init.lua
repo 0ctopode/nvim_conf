@@ -48,4 +48,5 @@ require("config.lazy")
 
 -- Theme
 -- require('onedark').load();
+vim.cmd[[colorscheme tokyonight-night]]
 

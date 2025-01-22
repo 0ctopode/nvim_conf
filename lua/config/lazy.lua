@@ -37,6 +37,12 @@ require("lazy").setup({
 			dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 			event = 'VeryLazy',
 		},
+		{
+  			"folke/tokyonight.nvim",
+  			lazy = false,
+  			priority = 1000,
+  			opts = {},
+		},
 
 		-- Also grab specs from lua/plugins
 		{ import = "plugins" },

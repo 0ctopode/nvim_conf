@@ -13,7 +13,12 @@ return {
     opts = {
     	    code_blocks = {
     	    	    -- Code blocks look cooked with word wrap
-    	    	    enable = false,
+    	    	    style = "simple",
+    	    	    language_names = { Unknown = "Plaintext" },
+    	    	    sign = false,
+    	    },
+    	    list_items = {
+    	    	    shift_width = 2,
     	    },
     },
 }
