@@ -1,4 +1,5 @@
 {
+	"diagnostic.enableSign": false,
 	"tsserver.enable": true,
 	"pyright.enable": true,
 	"inlayHint.enable": false,

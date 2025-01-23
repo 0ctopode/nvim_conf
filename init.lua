@@ -8,6 +8,7 @@ vim.opt.mouse = "a"  -- Mouse scrolling
 vim.opt.termguicolors = true
 vim.opt.relativenumber = true  -- Can't figure out if this is a good idea or not
 vim.g.editorconfig = false  -- wow this was annoying in a git repo
+vim.opt.linebreak = true
 
 -- Case insensitive when searching all lowercase but case sensitive if any uppercase
 vim.opt.ignorecase = true
@@ -42,61 +43,10 @@ vim.opt.backspace = {'indent', 'eol', 'start'}  -- Allow backspacing over everyt
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 
 
--- Vim Plug
-local vim = vim
-local Plug = vim.fn['plug#']
-
-vim.call('plug#begin')
-
-Plug 'MunifTanjim/nui.nvim'  -- Dependency for neotree
-Plug('navarasu/onedark.nvim')
-Plug('neoclide/coc.nvim', { ['branch'] = 'release' })
-Plug('nvim-neo-tree/neo-tree.nvim')
-Plug('nvim-lua/plenary.nvim')  -- Dependency for telescope
-Plug('nvim-telescope/telescope.nvim')
-Plug('nvim-treesitter/nvim-treesitter', { ['do'] = 'TSUpdate'})
-Plug('NeogitOrg/neogit')
-Plug('sindrets/diffview.nvim')  -- Used by neogit
-Plug('lewis6991/gitsigns.nvim')
-Plug('nvim-tree/nvim-web-devicons')
-Plug('nvim-lualine/lualine.nvim')
-Plug('ThePrimeagen/harpoon', { ['branch'] = 'harpoon2'})
-Plug('goolord/alpha-nvim')
-Plug('fdschmidt93/telescope-egrepify.nvim')
-Plug('stevearc/oil.nvim')
-Plug('tpope/vim-fugitive')
-
-vim.call('plug#end')
-
-
--- Plugin Config
-require('plugins.gitsigns')
-require('plugins.lualine')
-require('plugins.telescope')
-require('plugins.coc')
-require('plugins.devicons')
-require('plugins.treesitter')
-require('plugins.neotree')
-require('plugins.harpoon')
-require('plugins.oil')
-
--- General Plugin keybinds
-vim.keymap.set('n', '<leader>gg', '<Cmd>Neogit<CR>')
-
-vim.keymap.set('n', '<leader>tt', '<Cmd>Neotree position=float<CR>')
-vim.keymap.set('n', '<leader>tr', '<Cmd>Neotree position=right<CR>')
-vim.keymap.set('n', '<leader>to', '<Cmd>Oil --float<CR>')
-
+-- Setting up Lazy
+require("config.lazy")
 
 -- Theme
-require('onedark').load();
-
-
--- Simple Configs
-
--- α Alpha Startup
-require'alpha'.setup(require'alpha.themes.theta'.config)
-
--- Neogit
-require('neogit').setup{}
+-- require('onedark').load();
+vim.cmd[[colorscheme tokyonight-night]]
 
