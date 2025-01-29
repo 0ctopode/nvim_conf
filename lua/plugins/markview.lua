@@ -14,11 +14,13 @@ return {
     	    code_blocks = {
     	    	    -- Code blocks look cooked with word wrap
     	    	    style = "simple",
-    	    	    language_names = { Unknown = "Plaintext" },
+    	    	    -- language_names = { Unknown = "Plaintext" },
     	    	    sign = false,
     	    },
-    	    list_items = {
-    	    	    shift_width = 2,
-    	    },
+    	    markdown = {
+    	    	    list_items = {
+    	    	    	    shift_width = 2,
+    	    	    },
+    	    }
     },
 }

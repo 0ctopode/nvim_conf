@@ -24,7 +24,6 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
-		{'navarasu/onedark.nvim'},
 		{'tpope/vim-fugitive', event = 'VeryLazy'},
 		-- {'nvim-lua/plenary.nvim'},  -- Don't think I need to explicitly request this if everything lists it as a dep
 		{
