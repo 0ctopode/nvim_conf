@@ -31,5 +31,26 @@ return {
     			--    },
   			--  },
 		},
+		picker = {
+			enabled = true,
+			sources = {
+				explorer = {
+					layout = { layout = { position = "right" } },
+				}
+			}
+		},
+
+		explorer = {
+			enabled = true,
+			replace_netrw = true,
+		},
 	},
+
+	keys = {
+      	{ "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
+		{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers", },
+		{ "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
+
+		{ "<leader>tr", function() Snacks.explorer() end },
+	}
 }
