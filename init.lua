@@ -50,3 +50,6 @@ require("config.lazy")
 -- require('onedark').load();
 vim.cmd[[colorscheme tokyonight-night]]
 
+
+vim.keymap.set('n', '<leader>qq', '<Cmd>CodeCompanionActions<CR>', {})
+
