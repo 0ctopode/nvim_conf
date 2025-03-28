@@ -93,12 +93,12 @@ return {
   	  	  },
 		}
 
-		-- vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+		vim.keymap.set('n', '<leader>df', builtin.find_files, {})
 		-- vim.keymap.set('n', '<leader>fp', builtin.git_files, {})  -- doesn't seem to work as expected in mrimpossible
 		-- vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-		--vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+		vim.keymap.set('n', '<leader>db', builtin.buffers, {})
 		-- vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-		vim.keymap.set('n', '<leader>fe', '<Cmd>Telescope egrepify<CR>', {})
+		vim.keymap.set('n', '<leader>dg', '<Cmd>Telescope egrepify<CR>', {})
       end
 
     }

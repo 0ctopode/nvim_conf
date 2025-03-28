@@ -6,7 +6,7 @@ vim.opt.number = true
 vim.opt.hlsearch = true  -- Highlight search results
 vim.opt.mouse = "a"  -- Mouse scrolling
 vim.opt.termguicolors = true
-vim.opt.relativenumber = true  -- Can't figure out if this is a good idea or not
+vim.opt.relativenumber = true
 vim.g.editorconfig = false  -- wow this was annoying in a git repo
 vim.opt.linebreak = true
 
