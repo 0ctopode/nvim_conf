@@ -41,7 +41,7 @@ vim.opt.backspace = {'indent', 'eol', 'start'}  -- Allow backspacing over everyt
 
 -- General Remaps
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-
+vim.keymap.set({"t"}, "<Esc>", "<C-\\><C-N>")
 
 -- Setting up Lazy
 require("config.lazy")
