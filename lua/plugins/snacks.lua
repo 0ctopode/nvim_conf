@@ -47,9 +47,9 @@ return {
 	},
 
 	keys = {
-      	{ "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
-		{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers", },
-		{ "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
+      	-- { "<leader>df", function() Snacks.picker.files() end, desc = "Find Files" },
+		-- { "<leader>db", function() Snacks.picker.buffers() end, desc = "Buffers", },
+		-- { "<leader>dg", function() Snacks.picker.grep() end, desc = "Grep" },
 
 		{ "<leader>tr", function() Snacks.explorer() end },
 	}
