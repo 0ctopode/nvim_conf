@@ -51,5 +51,5 @@ require("config.lazy")
 vim.cmd[[colorscheme tokyonight-night]]
 
 
-vim.keymap.set('n', '<leader>qq', '<Cmd>CodeCompanionActions<CR>', {})
+vim.keymap.set('n', '<leader>q', '<Cmd>CodeCompanionActions<CR>', {})
 
