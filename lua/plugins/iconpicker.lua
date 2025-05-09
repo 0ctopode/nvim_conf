@@ -1,6 +1,9 @@
 -- Woooo emojis 🎉
 return {
     "ziontee113/icon-picker.nvim",
+	keys = {
+		{ "<leader>fe", '<Cmd>IconPickerNormal<CR>', desc = "icon-picker"}
+	},
     config = function()
         require("icon-picker").setup({ disable_legacy_commands = true })
 
