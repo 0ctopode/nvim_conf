@@ -9,9 +9,10 @@ return {
 
 		local builtin = require('telescope.builtin');
 		local egrep_actions = require "telescope._extensions.egrepify.actions"
+
 		require("telescope").setup {
-  	  	  extensions = {
-    	    	    egrepify = {
+  		  extensions = {
+    		    egrepify = {
       		-- intersect tokens in prompt ala "str1.*str2" that ONLY matches
       		-- if str1 and str2 are consecutively in line with anything in between (wildcard)
       		AND = true,                     -- default
@@ -26,72 +27,60 @@ return {
       		-- suffix = long line, see screenshot
       		-- EXAMPLE ON HOW TO ADD PREFIX!
       		prefixes = {
-        	  	  -- ADDED ! to invert matches
-        	  	  -- example prompt: ! sorter
-        	  	  -- matches all lines that do not comprise sorter
-        	  	  -- rg --invert-match -- sorter
-        	  	  --["!"] = {
-        	  	  --  flag = "invert-match",
-        	  	  --},
-        	  	  --
-        	  	  -- DEFAULT PREFIXES
-        	  	  -- just for visibility
-        	  	  ["#"] = {
-        	  	  	  -- #$REMAINDER
-        	  	  	  -- # is caught prefix
-        	  	  	  -- `input` becomes $REMAINDER
-        	  	  	  -- in the above example #lua,md -> input: lua,md
-        	  	  	  flag = "glob",
-        	  	  	  cb = function(input)
-            			return string.format([[*.{%s}]], input)
-        	  	  	  end,
-    	    	    	    },
-    	    	    	    -- filter for (partial) folder names
-    	    	    	    -- example prompt: >conf $MY_PROMPT
-    	    	    	    -- searches with ripgrep prompt $MY_PROMPT in paths that have "conf" in folder
-    	    	    	    -- i.e. rg --glob="**/conf*/**" -- $MY_PROMPT
-    	    	    	    [">"] = {
-        	  	  	  flag = "glob",
-        	  	  	  cb = function(input)
-            			return string.format([[**/{%s}*/**]], input)
-        	  	  	  end,
-    	    	    	    },
-    	    	    	    -- filter for (partial) folder names
-    	    	    	    -- example prompt: &egrep $MY_PROMPT
-    	    	    	    -- searches with ripgrep prompt $MY_PROMPT in paths that have "egrep" in file name
-    	    	    	    -- i.e. rg --glob="*egrep*" -- $MY_PROMPT
-    	    	    	    ["&"] = {
-        	  	  	  flag = "glob",
-        	  	  	  cb = function(input)
-            			return string.format([[*{%s}*]], input)
-        	  	  	  end,
-    	    	    	    },
+      		["#"] = {
+      			-- #$REMAINDER
+      			-- # is caught prefix
+      			-- `input` becomes $REMAINDER
+      			-- in the above example #lua,md -> input: lua,md
+      			flag = "glob",
+      			cb = function(input)
+          		    	    return string.format([[*.{%s}]], input)
+      			end,
+  		  	  },
+  		  	  -- filter for (partial) folder names
+  		  	  -- example prompt: >conf $MY_PROMPT
+  		  	  -- searches with ripgrep prompt $MY_PROMPT in paths that have "conf" in folder
+  		  	  -- i.e. rg --glob="**/conf*/**" -- $MY_PROMPT
+  		  	  [">"] = {
+      			flag = "glob",
+      			cb = function(input)
+          		    	    return string.format([[**/{%s}*/**]], input)
+      			end,
+  		  	  },
+  		  	  -- filter for (partial) file names
+  		  	  -- example prompt: &egrep $MY_PROMPT
+  		  	  -- searches with ripgrep prompt $MY_PROMPT in paths that have "egrep" in file name
+  		  	  -- i.e. rg --glob="*egrep*" -- $MY_PROMPT
+  		  	  ["&"] = {
+      			flag = "glob",
+      			cb = function(input)
+          		    	    return string.format([[*{%s}*]], input)
+      			end,
+  		  	  },
 
-	  	  	  -- PREFIXES I"VE ADDED
-        	  	  ["!"] = {
-        	  	  	  flag = "g",
-        	  	  	  cb = function(input)
-        	  	  	  	  return string.format([[!{%s}]], input)
-        	  	  	  end,
-        	  	  },
-        	  	  -- HOW TO OPT OUT OF PREFIX
-        	  	  -- ^ is not a default prefix and safe example
-        	  	  ["^"] = false
+  		  	  ["!"] = {
+      			flag = "glob",
+      			cb = function(input)
+          		    	    return string.format([[!*{%s}*]], input)
+      			end,
+  		  	  },
+
       		},
       		-- default mappings
       		mappings = {
-        	  	  i = {
-          	    	    -- toggle prefixes, prefixes is default
-          	    	    ["<C-z>"] = egrep_actions.toggle_prefixes,
-          	    	    -- toggle AND, AND is default, AND matches tokens and any chars in between
-          	    	    ["<C-a>"] = egrep_actions.toggle_and,
-          	    	    -- toggle permutations, permutations of tokens is opt-in
-          	    	    ["<C-r>"] = egrep_actions.toggle_permutations,
-        	  	  },
+        		  i = {
+          		    -- toggle prefixes, prefixes is default
+          		    ["<C-z>"] = egrep_actions.toggle_prefixes,
+          		    -- toggle AND, AND is default, AND matches tokens and any chars in between
+          		    ["<C-a>"] = egrep_actions.toggle_and,
+          		    -- toggle permutations, permutations of tokens is opt-in
+          		    ["<C-r>"] = egrep_actions.toggle_permutations,
+        		  },
       		},
-    	    	    },
-  	  	  },
+    		    },
+  		  },
 		}
+		require("telescope").load_extension "egrepify"
 
 		vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 		-- vim.keymap.set('n', '<leader>fp', builtin.git_files, {})  -- doesn't seem to work as expected in mrimpossible
