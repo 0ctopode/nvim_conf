@@ -11,6 +11,9 @@ return {
 		local egrep_actions = require "telescope._extensions.egrepify.actions"
 
 		require("telescope").setup {
+		  defaults = {
+		  	  prompt_prefix = ' ',
+		  },
   		  extensions = {
     		    egrepify = {
       		-- intersect tokens in prompt ala "str1.*str2" that ONLY matches
