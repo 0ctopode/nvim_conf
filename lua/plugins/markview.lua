@@ -1,5 +1,6 @@
 return {
     "OXY2DEV/markview.nvim",
+    enabled = false,
     -- branch = "dev",
     -- lazy = false,      -- Recommended
     -- You can't tell me what to do
