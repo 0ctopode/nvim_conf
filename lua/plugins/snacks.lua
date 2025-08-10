@@ -17,19 +17,19 @@ return {
 				{ icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
 				{ section = "startup" },
 			},
-  			--  sections = {
-    			--    {
-      		--	section = "terminal",
-      		--	cmd = "chafa /home/harvey/Pictures/doG/flat.png --format symbols --symbols vhalf --size 60x17; sleep .1",
-      		--	height = 17,
-      		--	padding = 1,
-    			--    },
-    			--    {
-      		--	pane = 2,
-      		--	{ section = "keys", gap = 1, padding = 1 },
-      		--	{ section = "startup" },
-    			--    },
-  			--  },
+			--  sections = {
+			--    {
+			--	section = "terminal",
+			--	cmd = "chafa /home/harvey/Pictures/doG/flat.png --format symbols --symbols vhalf --size 60x17; sleep .1",
+			--	height = 17,
+			--	padding = 1,
+			--    },
+			--    {
+			--	pane = 2,
+			--	{ section = "keys", gap = 1, padding = 1 },
+			--	{ section = "startup" },
+			--    },
+			--  },
 		},
 		picker = {
 			enabled = true,
@@ -47,10 +47,11 @@ return {
 	},
 
 	keys = {
-      	-- { "<leader>df", function() Snacks.picker.files() end, desc = "Find Files" },
+		-- { "<leader>df", function() Snacks.picker.files() end, desc = "Find Files" },
 		-- { "<leader>db", function() Snacks.picker.buffers() end, desc = "Buffers", },
 		-- { "<leader>dg", function() Snacks.picker.grep() end, desc = "Grep" },
 
 		{ "<leader>tr", function() Snacks.explorer() end },
 	}
 }
+
