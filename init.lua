@@ -16,15 +16,36 @@ vim.opt.smartcase = true  -- overrides ignorecase if capitals present
 
 -- Tabs
 vim.opt.autoindent = true
-vim.opt.expandtab = false
-vim.opt.tabstop = 6
-vim.opt.shiftwidth = 6
+vim.opt.smartindent = true
 vim.opt.copyindent = true
 vim.opt.preserveindent = true
-vim.opt.softtabstop = 0
-vim.opt.smarttab = true
--- Set indentation *after* ftplugins
-vim.api.nvim_command([[au FileType * setl expandtab< shiftwidth< softtabstop< tabstop<]])  -- This is so cooked
+
+local indent_augroup = vim.api.nvim_create_augroup("IndentSettings", { clear = true })
+
+-- Default indentation (tabs)
+-- Need this as the base case becuase ftplugins is annoying
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	group = indent_augroup,
+	callback = function()
+		vim.opt_local.expandtab = false
+		vim.opt_local.tabstop = 6
+		vim.opt_local.shiftwidth = 6
+		vim.opt_local.softtabstop = 6
+	end,
+})
+
+-- Use spaces for dart files
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = {"dart"},
+	group = indent_augroup,
+	callback = function()
+		vim.opt_local.expandtab = true
+		vim.opt_local.tabstop = 2
+		vim.opt_local.shiftwidth = 2
+		vim.opt_local.softtabstop = 2
+	end,
+})
 
 -- Whitespace
 vim.opt.list = true;
