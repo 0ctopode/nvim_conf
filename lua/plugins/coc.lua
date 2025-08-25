@@ -65,6 +65,8 @@ return {
 		end
 		keyset("n", "K", '<CMD>lua _G.show_docs()<CR>', {silent = true})
 
+		-- escape to get out of coc popups
+		keyset("n", "<Esc>", "<Plug>(coc-float-hide)", {silent = true})
 
 		-- Highlight the symbol and its references on a CursorHold event(cursor is idle)
 		vim.api.nvim_create_augroup("CocGroup", {})
