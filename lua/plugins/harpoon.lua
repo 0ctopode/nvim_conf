@@ -14,7 +14,7 @@ return {
 		})
 
 		vim.keymap.set('n', '<leader>w', function() harpoon:list():add() end)
-		vim.keymap.set('n', '<C-e>', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+		vim.keymap.set('n', '<leader>e', function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 
 		-- Jump to specific list items
 		vim.keymap.set("n", "<M-q>", function() harpoon:list():select(1) end)
