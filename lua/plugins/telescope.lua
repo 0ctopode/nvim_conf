@@ -37,7 +37,7 @@ return {
 							-- in the above example #lua,md -> input: lua,md
 							flag = "glob",
 							cb = function(input)
-								return string.format([[*.*]], input)
+								return string.format([[*.{%s}]], input)
 							end,
 						},
 						-- filter for (partial) folder names
