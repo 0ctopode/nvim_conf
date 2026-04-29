@@ -37,7 +37,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Use spaces for dart files
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = {"dart"},
+	pattern = {"dart", "yaml"},
 	group = indent_augroup,
 	callback = function()
 		vim.opt_local.expandtab = true
