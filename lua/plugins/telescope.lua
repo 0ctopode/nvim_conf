@@ -13,6 +13,10 @@ return {
 		require("telescope").setup {
 			defaults = {
 				prompt_prefix = ' ',
+				cache_picker = {
+					num_pickers = 1,
+					limit_entries = 10,
+				}
 			},
 			extensions = {
 				egrepify = {
@@ -91,6 +95,7 @@ return {
 		vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 		-- vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 		vim.keymap.set('n', '<leader>fg', '<Cmd>Telescope egrepify<CR>', {})
+		vim.keymap.set('n', '<leader>fr', '<Cmd>Telescope resume<CR>', {})
 	end
 
 }
