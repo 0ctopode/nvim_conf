@@ -21,6 +21,10 @@ return {
 		vim.keymap.set("n", "<M-w>", function() harpoon:list():select(2) end)
 		vim.keymap.set("n", "<M-e>", function() harpoon:list():select(3) end)
 		vim.keymap.set("n", "<M-r>", function() harpoon:list():select(4) end)
+		vim.keymap.set("n", "<M-t>", function() harpoon:list():select(5) end)
+		vim.keymap.set("n", "<M-y>", function() harpoon:list():select(6) end)
+		vim.keymap.set("n", "<M-u>", function() harpoon:list():select(7) end)
+		vim.keymap.set("n", "<M-i>", function() harpoon:list():select(8) end)
 	end
 
 }

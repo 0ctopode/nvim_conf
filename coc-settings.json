@@ -8,5 +8,5 @@
 	"python.linting.ruffEnabled": true,
 
 	"suggest.noselect": true,
-	"suggest.maxCompleteItemCount": 20,
+	"suggest.maxCompleteItemCount": 10
 }
